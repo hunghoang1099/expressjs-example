@@ -20,7 +20,7 @@ app.get('/echo', middleware.verifyToken, async (req, res) => {
     })
 })
 
-app.get('/list', async (req, res) => {
+app.get('/list', middleware.verifyToken, async (req, res) => {
     const data = await ClientIP.find();
     res.status(200).send(data);
 })
